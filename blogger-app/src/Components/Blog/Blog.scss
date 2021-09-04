@@ -1,0 +1,20 @@
+.title-container {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .MuiTypography-h5 {
+    margin: 0px !important;
+  }
+  .MuiButton-root {
+    margin: 10px 10px !important;
+    background-color: rgb(243, 236, 236);
+    color: red !important;
+    // padding: 0 !important;
+  }
+}
+.MuiCardActions-root,
+.MuiTypography-h5 {
+  padding: 0px !important;
+  margin: 0px !important;
+}

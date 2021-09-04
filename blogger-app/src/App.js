@@ -22,7 +22,8 @@ function App() {
 
   const SignIn = React.lazy(() => import("./Components/SignIn"))
   const HomePage = React.lazy(() => import("./Components/HomePage"))
-  // const Dashboard = React.lazy(() => import("./Components/Dashboard"))
+  const SignUp = React.lazy(() => import("./Components/SignUp"))
+  
 
   return (
     <React.Suspense fallback={loading}>
@@ -32,8 +33,10 @@ function App() {
 
           <Switch>
             <Route exact path="/" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
 
-            <Route path="/home" component={HomePage}/>
+            <Route path="/blogs" component={HomePage}/>
+
 
           </Switch>
           

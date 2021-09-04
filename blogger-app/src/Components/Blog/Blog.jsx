@@ -1,58 +1,56 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { CardHeader } from '@material-ui/core';
-
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import {  Tooltip } from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
+import "./Blog.scss";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    
   },
   media: {
     height: 140,
   },
 });
 
-export default function Blob() {
+export default function Blob(props) {
   const classes = useStyles();
 
+  
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <div className="px-10 py-10">
-        <Typography gutterBottom variant="h5" component="h2">
+        <div className="title-container">
+          <Typography gutterBottom variant="h5" component="h2">
             Lizard
           </Typography>
+          <CardActions>
+            <Tooltip title="Delete Blog">
+              <Button size="small" color="primary" onClick={props.onDelete}>
+                <DeleteIcon fontSize="small"/>
+              </Button>
+            </Tooltip>
+          </CardActions>
         </div>
-         
-       
+
         <CardMedia
           className={classes.media}
           image="/static/images/cards/contemplative-reptile.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
-          
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica 4{" "}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
     </Card>
   );
 }

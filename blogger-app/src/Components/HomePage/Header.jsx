@@ -1,12 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   toolbarSecondary: {
-    overflowX: 'auto',
+    overflowX: "auto",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -31,24 +32,30 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-      {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            className={classes.toolbarLink}
-          >
-            {section.title}
-          </Link>
-        ))}
+        <NavLink
+          color="inherit"
+          exact
+          to="/blogs/all"
+          activeStyle={{background: "#E0DDDD"}}
+          className={classes.toolbarLink}
+        >
+          Blogs
+        </NavLink>
+        <NavLink
+          color="inherit"
+          exact
+          to="/blogs/add"
+          activeStyle={{background: "#E0DDDD"}}
+          className={classes.toolbarLink}
+        >
+          Create / Publish Blogs
+        </NavLink>
+        
         <Typography
           component="h2"
           variant="h5"
           color="inherit"
           align="center"
-          noWrap
           className={classes.toolbarTitle}
         >
           {title}
