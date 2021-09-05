@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import {  Tooltip } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import "./Blog.scss";
+import img from '../../../src/download.png'
 const useStyles = makeStyles({
   root: {
     width: 345,
@@ -40,7 +41,7 @@ export default function Blog(props) {
 
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={img}
           title="Contemplative Reptile"
         />
         <CardContent>
