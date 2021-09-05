@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -12,31 +12,30 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import "./Blog.scss";
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 345,
   },
   media: {
     height: 140,
   },
 });
 
-export default function Blob(props) {
+export default function Blog(props) {
   const classes = useStyles();
 
-  
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <div className="title-container">
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {props.blogData.blog_title}
           </Typography>
-          <CardActions>
+          {props.user.id === props.blogData?.user_id && <CardActions>
             <Tooltip title="Delete Blog">
               <Button size="small" color="primary" onClick={props.onDelete}>
                 <DeleteIcon fontSize="small"/>
               </Button>
             </Tooltip>
-          </CardActions>
+          </CardActions>}
         </div>
 
         <CardMedia
@@ -46,8 +45,7 @@ export default function Blob(props) {
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica 4{" "}
+         { props.blogData.blog_description}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -1,7 +1,7 @@
 
 import { Provider } from 'react-redux';
 import store from './redux/store'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import React from 'react';
 function App() {
   const loading = (
@@ -36,7 +36,8 @@ function App() {
             <Route exact path="/signup" component={SignUp} />
 
             <Route path="/blogs" component={HomePage}/>
-
+            <Route path="/error/error-v1" render={() => <h1 className="not">404 NOT FOUND</h1>}/>
+            <Redirect to="error/error-v1" />
 
           </Switch>
           

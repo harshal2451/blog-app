@@ -33,6 +33,8 @@ export default function HomePage() {
           <Route path="/blogs/all" component={AllBlogs} />
           <Route path="/blogs/add" component={BlogDetails} />
           <Route path="/blogs/:id/details" component={BlogDetails} />
+          <Route path="/blogs/error/error-v1" render={() => <h1 className="not">404 NOT FOUND</h1>}/>
+            <Redirect to="error/error-v1" />
         </Switch>
       </Container>
       <Footer

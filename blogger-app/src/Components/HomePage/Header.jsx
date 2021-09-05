@@ -7,8 +7,9 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import * as actions from "../../redux/action"
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -27,8 +28,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header(props) {
   const classes = useStyles();
+  const dispatch = useDispatch()
   const { sections, title } = props;
+const history = useHistory()
+  const handleLogout= () => {
+    dispatch(actions.logout())
+    history.push("/")
 
+  }
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
@@ -60,11 +67,8 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
+        <Button variant="outlined" size="small" onClick={handleLogout}>
+          Log Out
         </Button>
       </Toolbar>
     </React.Fragment>
