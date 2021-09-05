@@ -78,7 +78,7 @@ export function login(email, password) {
         }
         return res;
       })
-      .catch((err) => {
+      .catch((err, res) => {
         dispatch(fetchError(err.message));
       });
   };
@@ -150,14 +150,14 @@ export function addBlog(blog_title, blog_description) {
     };
   }
 
-  export function updateBlog(blogId, blog_title, blog_description) {
+  export function updateBlog(blogId, title, description) {
     return (dispatch) => {
       dispatch(fetchRequest());
       const user = JSON.parse(localStorage.getItem("user"));
     const token = user.token;
       return axios
         .put(BASE_URL + "/blogs/" + blogId,
-        { blog_title, blog_description },
+        { blog_title: title, blog_description: description },
         { headers: { authorization: `token ${token}` } },
         )
         .then((res) => {

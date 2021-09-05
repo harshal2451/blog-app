@@ -30,7 +30,7 @@ export default function Blog(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {props.blogData.blog_title}
           </Typography>
-          {props.user.id === props.blogData?.user_id && <CardActions>
+          {props.user?.id === props.blogData?.user_id && <CardActions>
             <Tooltip title="Delete Blog">
               <Button size="small" color="primary" onClick={props.onDelete}>
                 <DeleteIcon fontSize="small"/>

@@ -84,6 +84,7 @@ export default function SignIn() {
       [e.target.name]: e.target.value,
     });
   };
+  
   const handleSignin = () => {
     dispatch(
       actions.login(signInDetail.email, signInDetail.password)
@@ -136,7 +137,7 @@ export default function SignIn() {
             label="Remember me"
           />
           {error && (
-            <div className="p-3 mb-2  text-danger">{error}</div>
+            <div className="p-3 mb-2 text-danger">Invalid Credentials</div>
           )}
           <Button
             fullWidth

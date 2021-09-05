@@ -64,8 +64,8 @@ export default function BlogDetails(props) {
       dispatch(
         actions.updateBlog(
           props.match.params.id,
-          blogDetail?.title,
-          blogDetail?.description
+          blogDetailId?.title,
+          blogDetailId?.description
         )
       ).then((res) => {
         if (res) history.push("/blogs/all");
@@ -127,7 +127,7 @@ export default function BlogDetails(props) {
             onClose={handleClose}
           />
         </div> */}
-        {user.id === blogDetail?.users?.id && <div className="form-group d-flex align-items-center">
+        {user?.id === blogDetail?.users?.id && <div className="form-group d-flex align-items-center">
           <div className="w-100 d-flex">
             <Button
               className="mr-5"

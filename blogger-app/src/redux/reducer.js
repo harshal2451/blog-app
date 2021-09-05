@@ -17,7 +17,8 @@ export const reducer = (state = intialState, action) => {
         case FETCH_SUCCESS:
             return{
                 ...state,
-                loading: false
+                loading: false,
+                error:null
             }
 
         case LOGIN:
@@ -35,26 +36,28 @@ export const reducer = (state = intialState, action) => {
             return{
                 ...state,
                 blogs: action.payload,
-                loading: false
+                loading: false,
+                error: null
             }
 
         case FETCH_BLOG_DETAIL:
                 return{
                     ...state,
                     blogDetail: action.payload,
-                    loading: false
+                    loading: false,
+                    error: null
                 }
 
         case FETCH_REQUEST:
             return{
                 ...state,
-                loading: true
+                loading: true,
             }
 
         case FETCH_ERROR:
             return{
                 ...state,
-                error: action.payload.message,
+                error: action.payload,
                 loading: false
             }
 
