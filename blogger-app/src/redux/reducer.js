@@ -12,7 +12,6 @@ const intialState = {
 }
 
 export const reducer = (state = intialState, action) => {
-    console.log("=======================",action.type);
     switch(action.type){
 
         case FETCH_SUCCESS:
@@ -22,7 +21,6 @@ export const reducer = (state = intialState, action) => {
             }
 
         case LOGIN:
-            console.log(action.payload);
             localStorage.setItem("user",JSON.stringify(action.payload))
             return{
                 ...state
@@ -48,7 +46,6 @@ export const reducer = (state = intialState, action) => {
                 }
 
         case FETCH_REQUEST:
-            console.log("hello");
             return{
                 ...state,
                 loading: true

@@ -27,7 +27,6 @@ export default function AllBlogs() {
     })
     setDeletePopup(false);
   };
-console.log(blogs);
   return (
     <>
       <div className="blog-container d-flex  justify-content-around align-items-center">

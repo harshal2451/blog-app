@@ -23,11 +23,9 @@ export default function BlogDetails(props) {
     shallowEqual
   );
   useEffect(() => {
-    console.log(blogDetail);
     user = JSON.parse(localStorage.getItem("user"))
     if (props.match.params.id) {
       dispatch(actions.fetchBlogDetailId(props.match.params.id)).then((res) => {
-        console.log("=========>",res);
         const { response_data } = res.data;
 
         if (response_data) {
@@ -40,7 +38,6 @@ export default function BlogDetails(props) {
       });
     }
   }, [dispatch]);
-  console.log(props.match);
   const [openDropzone, setOpenDropzone] = useState(false);
 
   const handleChange = (e) => {
@@ -85,7 +82,6 @@ export default function BlogDetails(props) {
       });
     }
   };
-  console.log("hello");
   return (
     <div className="d-flex border justify-content-center align-items-center p-5">
       <form>
